@@ -50,6 +50,10 @@
             </select>
         </div>
 
+        <div class="form-group">
+            <input type="number" id="rating-control" class="form-control" step="0.1" max="5" placeholder="Rate 1-5" disabled/>
+        </div>
+
         <div class="row">
             
             <table class="table table-striped">
@@ -130,6 +134,21 @@
 
         //RUN GET RATINGS WHEN DOM LOADS
         document.addEventListener('DOMContentLoaded', getRatings);
+
+        const productSelect = document.getElementById('product');
+        const ratingControl = document.getElementById('rating-control');
+
+        //INIT PRODUCT
+        let product;
+
+        //PRODUCT SELECT CHANGE
+        productSelect.addEventListener('change' , (e) => {
+            product = e.target.value;
+            
+            //Enable rating
+            ratingControl.disabled = false;
+            ratingControl.value = ratings[product];
+        })
 
         // GET RATINGS
         function getRatings(){
