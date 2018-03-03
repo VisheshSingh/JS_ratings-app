@@ -178,6 +178,9 @@
 
                 //SET WIDTH OF STAR-INNER TO PERCENTAGE
                 document.querySelector(`.${rating} .star-inner`).style.width = starPercentageRounded;
+
+                //Add number rating
+                document.querySelector(`.${rating} .number-rating`).innerHTML = ratings[rating];
             }
         }
     </script>
