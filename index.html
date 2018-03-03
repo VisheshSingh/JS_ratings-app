@@ -150,6 +150,22 @@
             ratingControl.value = ratings[product];
         })
 
+        //RATING CONTROL CHANGE
+        ratingControl.addEventListener('blur' , (e) => {
+            const rating = e.target.value;
+            
+            // Check rating
+            if(rating > 5){
+                alert('Please rate 1-5');
+                return 
+            }
+
+            //change rating
+            ratings[product] = rating;
+            getRatings();
+        })
+
+
         // GET RATINGS
         function getRatings(){
             for(rating in ratings){
