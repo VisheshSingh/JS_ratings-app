@@ -72,5 +72,38 @@
             </table>
         </div>
     </div>
+
+    <!-- JS -->
+    <script>
+        // INITIAL RATINGS
+        const ratings = {
+            sony: 4.7,
+            lg: 4.2,
+            samsung: 2.9,
+            panasonic: 3.4,
+            phillips: 4.5
+        }
+
+        // TOTAL STARS
+        const totalratings = 5;
+
+        //RUN GET RATINGS WHEN DOM LOADS
+        document.addEventListener('DOMContentLoaded', getRatings);
+
+        // GET RATINGS
+        function getRatings(){
+            for(rating in ratings){
+                //GET PERCENTAGE
+                const starPercentage = (ratings[rating] / totalratings) * 100;
+
+                //ROUND TO NEAREST 10
+                const starPercentageRounded = `${Math.round(starPercentage)}%`;
+                console.log(starPercentageRounded);
+
+                //SET WIDTH OF STAR-INNER TO PERCENTAGE
+                document.querySelector(`.${rating} .stars-inner`).style.width = starPercentageRounded;
+            }
+        }
+    </script>
 </body>
 </html>
